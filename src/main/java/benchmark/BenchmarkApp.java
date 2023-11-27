@@ -41,14 +41,14 @@ public class BenchmarkApp {
 		Properties properties = loadProperties(filePath);
 
 		// take the value of the properties used for connecting to the MYSQL database
-		String url = properties.getProperty("db.url");
-		String username = properties.getProperty("db.username");
-		String password = properties.getProperty("db.password");
+		String url = properties.getProperty("db.url").trim();
+		String username = properties.getProperty("db.username").trim();
+		String password = properties.getProperty("db.password").trim();
 
 		// take the value of the properties used for frequency of commits and number of
 		// data inserted
-		int commitFrequency = Integer.parseInt(properties.getProperty("db.frequency"));
-		int numberOfExecutions = Integer.parseInt(properties.getProperty("db.numExecution"));
+		int commitFrequency = Integer.parseInt(properties.getProperty("db.frequency").trim());
+		int numberOfExecutions = Integer.parseInt(properties.getProperty("db.numExecution").trim());
 
 		logger.info("------STARTED APPLICATION------ \n");
 
