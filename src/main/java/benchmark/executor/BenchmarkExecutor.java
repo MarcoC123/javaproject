@@ -40,7 +40,7 @@ public class BenchmarkExecutor {
 	 * @param connection
 	 * @throws SQLException
 	 */
-	private void measureSelectBenchmark(Connection connection, int numberOfExecutions) throws SQLException {
+	public void measureSelectBenchmark(Connection connection, int numberOfExecutions) throws SQLException {
 
 		String selectSql = "SELECT * from benchmark_table WHERE id = ?";
 		long minTime = Long.MAX_VALUE;
@@ -79,7 +79,7 @@ public class BenchmarkExecutor {
 	 * @param connection
 	 * @throws SQLException
 	 */
-	private void measureInsertBenchmark(Connection connection, int commitFrequency,int numberOfExecutions) throws SQLException {
+	public void measureInsertBenchmark(Connection connection, int commitFrequency,int numberOfExecutions) throws SQLException {
 
 		String insertSql = "INSERT INTO benchmark_table (nome,indirizzo,numero_telefono,email) VALUES (?,?,?,?)";
 		long minTime = Long.MAX_VALUE;
@@ -134,7 +134,7 @@ public class BenchmarkExecutor {
 	 * @param connection
 	 * @throws SQLException
 	 */
-	private void cleanTable(Connection connection) throws SQLException {
+	 public void cleanTable(Connection connection) throws SQLException {
 
 		String deleteSql = "DELETE FROM benchmark_table";
 
