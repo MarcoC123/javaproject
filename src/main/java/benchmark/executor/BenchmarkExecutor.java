@@ -123,7 +123,7 @@ public class BenchmarkExecutor {
 	/**
 	 * simple method used to color the logger
 	 * @param value
-	 * @return
+	 * @return String
 	 */
 	 private String colorize(Object value) {
 	        return "\u001B[36m" + value + "\u001B[0m";
@@ -144,7 +144,7 @@ public class BenchmarkExecutor {
 			
 			connection.commit();
 
-			logger.info("###### rimosse " +colorize(numLine) + " righe di dati dalla tabella benchmark_table ###### \n");
+			logger.info("###### removed " +colorize(numLine) + " lines of data from table benchmark_table ###### \n");
 		}
 	}
 
