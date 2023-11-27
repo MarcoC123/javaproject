@@ -34,21 +34,6 @@ public class BenchmarkTest {
 	    }
 	   
 	   @Test
-	    void testCleanTable() throws SQLException {
-	        BenchmarkExecutor benchmarkExecutor = new BenchmarkExecutor();
-
-	        Connection connection = mock(Connection.class);
-	        PreparedStatement preparedStatement = mock(PreparedStatement.class);
-
-	        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
-
-
-	        benchmarkExecutor.cleanTable(connection);
-
-	        verify(connection, times(1)).commit(); 
-	    }
-	   
-	   @Test
 	    void testMeasureSelectBenchmark() throws SQLException {
 	        BenchmarkExecutor benchmarkExecutor = new BenchmarkExecutor();
 
@@ -62,5 +47,20 @@ public class BenchmarkTest {
 	        benchmarkExecutor.measureSelectBenchmark(connection, numberOfExecutions);
 
 	        verify(preparedStatement, times(20)).executeQuery(); 
+	    }
+	   
+	   @Test
+	    void testCleanTable() throws SQLException {
+	        BenchmarkExecutor benchmarkExecutor = new BenchmarkExecutor();
+
+	        Connection connection = mock(Connection.class);
+	        PreparedStatement preparedStatement = mock(PreparedStatement.class);
+
+	        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
+
+
+	        benchmarkExecutor.cleanTable(connection);
+
+	        verify(connection, times(1)).commit(); 
 	    }
 }
